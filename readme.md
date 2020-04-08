@@ -13,7 +13,7 @@ It is a demo project for demonstrating what can be generated with new 2019 versi
 - Run __composer install__
 - Run __php artisan key:generate__
 - Run __php artisan migrate --seed__ (it has some seeded data for your testing)
-- That's it: launch the main URL or go to __/login__ and login with default credentials __admin@admin.com__ - __password__
+
 
 ## License
 
