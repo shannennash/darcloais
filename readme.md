@@ -1,9 +1,6 @@
 # Laravel Users Login Activity Dashboard
 
-It is a demo project for demonstrating what can be generated with new 2019 version of [QuickAdminPanel](https://2019.quickadminpanel.com) tool. 
-
 ## Screenshot
-
 
 
 ## How to use
