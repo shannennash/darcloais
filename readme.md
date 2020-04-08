@@ -4,7 +4,7 @@ It is a demo project for demonstrating what can be generated with new 2019 versi
 
 ## Screenshot
 
-#![Laravel Login Activity Dashboard](https://laraveldaily.com/wp-content/uploads/2019/04/Screen-Shot-2019-04-23-at-12.37.25-PM.png)
+
 
 ## How to use
 
