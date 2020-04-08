@@ -1,0 +1,103 @@
+<aside class="main-sidebar">
+    <section class="sidebar" style="height: auto;">
+
+        <ul class="sidebar-menu tree" data-widget="tree">
+	    	<li class="user-info">
+	    	    <a href="{{ route('admin.users.edit', $data['id']) }}">
+	    	    	<img src="/assets/images/dar-logo.png" alt="">
+                    <p>Hello {{$data['name']}}</p>
+                    {{-- {{$data['role']}} --}}
+                    {{-- {{$view_name}} --}}
+	    	    </a>
+	    	</li>
+    	</ul>
+
+        <ul class="sidebar-menu tree" data-widget="tree">
+            <li>
+                <a href="{{ route("admin.home") }}">
+                    <i class="fas fa-tachometer-alt">
+
+                    </i>
+                    {{ trans('global.dashboard') }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ route("admin.cloas.index") }}">
+                    <i class="fas fa-file-contract"></i>
+                    Manage CLOAS
+                </a>
+            </li>
+            <li>
+                <a href="{{ route("admin.cloas.index") }}/?generate=1">
+                    <i class="fas fa-print"></i>
+                    Generate Reports
+                </a>
+            </li>
+            <li>
+                <a href="{{ route("admin.ldiss.create") }}">
+                    <i class="fab fa-battle-net"></i>
+                    LDIS Prediction Tool
+                </a>
+            </li>
+            <li>
+                <a href="{{ route("admin.ldiss.index") }}">
+                	<i class="fas fa-clipboard-list"></i>
+                    LDIS Data List
+                </a>
+            </li>
+            @if($data['role'] == 1)
+                @can('user_management_access')
+                    <li class="treeview">
+                        <a>
+                            <i class="fas fa-users">
+
+                            </i>
+                            <span>{{ trans('global.userManagement.title') }}</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @can('permission_access')
+                                <li class="{{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                                    <a href="{{ route("admin.permissions.index") }}">
+                                        <i class="fas fa-unlock-alt">
+
+                                        </i>
+                                        <span>{{ trans('global.permission.title') }}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('role_access')
+                                <li class="{{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                                    <a href="{{ route("admin.roles.index") }}">
+                                        <i class="fas fa-briefcase">
+
+                                        </i>
+                                        <span>{{ trans('global.role.title') }}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('user_access')
+                                <li class="{{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                    <a href="{{ route("admin.users.index") }}">
+                                        <i class="fas fa-user">
+
+                                        </i>
+                                        <span>{{ trans('global.user.title') }}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
+            @endif
+            <li>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                    <i class="fas fa-sign-out-alt">
+
+                    </i>
+                    {{ trans('global.logout') }}
+                </a>
+            </li>
+        </ul>
+    </section>
+</aside>
